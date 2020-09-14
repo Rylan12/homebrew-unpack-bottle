@@ -44,7 +44,7 @@ module Homebrew
 
     formulae.each do |f|
       if f.bottle.nil?
-        oh1 "No bottles found for #{f.name}-#{f.pkg_version}"
+        oh1 "No bottles found for #{Formatter.identifier(f.full_name)}"
         next
       end
 
