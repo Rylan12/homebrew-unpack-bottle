@@ -10,9 +10,7 @@ module Homebrew
 
   def unpack_bottle_args
     Homebrew::CLI::Parser.new do
-      usage_banner <<~EOS
-        `unpack-bottle` [<options>] <formula>
-
+      description <<~EOS
         Unpack the bottles for <formula> into subdirectories of the current
         working directory.
       EOS
@@ -24,7 +22,7 @@ module Homebrew
              description: "Overwrite the destination directory if it already exists."
 
       conflicts "--git", "--patch"
-      min_named :formula
+      named_args :formula, min: 1
     end
   end
 
